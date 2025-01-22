@@ -1,5 +1,6 @@
 import 'package:bowl_app/global/blocs/cubit/internet_cubit.dart';
 import 'package:bowl_app/global/utils/routes_list.dart';
+import 'package:bowl_app/modules/dashboard/blocs/bloc/dashboard_bloc.dart';
 import 'package:bowl_app/modules/splash/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,13 +19,12 @@ class MyApp extends StatelessWidget {
         BlocProvider<InternetCubit>(
           create: (context) => InternetCubit(),
         ),
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
+        BlocProvider<DashboardBloc>(
+          create: (context) => DashboardBloc(),
         ),
+      ],
+      child: const MaterialApp(
+        title: 'Flutter Demo',
         initialRoute: '/', // first navigator route
         onGenerateRoute: GenerateRoutePageSystem.getKnownRoutes,
       ),

@@ -5,24 +5,25 @@ class FormWidgets {
   static getTextFormField({
     required TextEditingController controller,
     required bool? formEnabled,
+    void Function(String)? onChanged,
     Widget? icon,
-    Color? iconColor = Colors.white,
+    Color? iconColor = Colors.black,
     Widget? prefix,
     String? prefixText,
     Widget? prefixIcon,
-    Color? prefixIconColor = Colors.white,
+    Color? prefixIconColor = Colors.black,
     Widget? suffix,
     String? suffixText,
     Widget? suffixIcon,
-    Color? suffixIconColor = Colors.white,
+    Color? suffixIconColor = Colors.black,
     Widget? helper,
     String? helperText,
-    TextStyle? helperStyle = const TextStyle(color: Colors.white),
+    TextStyle? helperStyle = const TextStyle(color: Colors.black),
     Widget? label,
     String? labelText,
-    TextStyle? labelStyle = const TextStyle(color: Colors.white),
+    TextStyle? labelStyle = const TextStyle(color: Colors.black),
     String? hintText,
-    TextStyle? hintStyle = const TextStyle(color: Colors.white),
+    TextStyle? hintStyle = const TextStyle(color: Colors.black),
     Widget? error,
     String? errorText,
     TextStyle? errorStyle =
@@ -33,7 +34,8 @@ class FormWidgets {
       child: TextFormField(
         enabled: formEnabled,
         controller: controller,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.black),
+        onChanged: onChanged,
         decoration: InputDecoration(
           icon: (icon != null) ? icon : null,
           iconColor: iconColor,
@@ -74,13 +76,13 @@ class FormWidgets {
               borderSide: const BorderSide(color: Colors.grey, width: 2)),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: const BorderSide(color: Colors.white, width: 2)),
+              borderSide: const BorderSide(color: Colors.black, width: 2)),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: const BorderSide(color: Colors.amber, width: 2)),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: const BorderSide(color: Colors.white, width: 2)),
+              borderSide: const BorderSide(color: Colors.black, width: 2)),
         ),
       ),
     );
