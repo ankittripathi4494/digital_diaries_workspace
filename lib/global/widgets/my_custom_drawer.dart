@@ -25,7 +25,7 @@ class DrawerSubPart extends StatelessWidget {
             ListTile(
               onTap: () {
                 Navigator.pop(context);
-                Navigator.pushNamed(context, '/dashboard',
+                Navigator.pushNamed(context, '/pensioner-list',
                     arguments: {'title': 'Dashboard'});
               },
               // selected: true,

@@ -1,13 +1,15 @@
-class ConstomerListResponseModel {
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
+class PensionerListResponseModel {
   String? status;
   String? response;
   String? message;
   int? totalCount;
   String? itemCount;
   int? pageNo;
-  List<ConstomerListResponseData>? data;
+  List<PensionerListResponseData>? data;
 
-  ConstomerListResponseModel(
+  PensionerListResponseModel(
       {this.status,
       this.response,
       this.message,
@@ -16,7 +18,7 @@ class ConstomerListResponseModel {
       this.pageNo,
       this.data});
 
-  ConstomerListResponseModel.fromJson(Map<String, dynamic> json) {
+  PensionerListResponseModel.fromJson(Map<String, dynamic> json) {
     status = json["status"];
     response = json["response"];
     message = json["message"];
@@ -26,7 +28,7 @@ class ConstomerListResponseModel {
     data = json["data"] == null
         ? null
         : (json["data"] as List)
-            .map((e) => ConstomerListResponseData.fromJson(e))
+            .map((e) => PensionerListResponseData.fromJson(e))
             .toList();
   }
 
@@ -45,7 +47,7 @@ class ConstomerListResponseModel {
   }
 }
 
-class ConstomerListResponseData {
+class PensionerListResponseData {
   String? id;
   String? parentId;
   String? accountId;
@@ -58,7 +60,7 @@ class ConstomerListResponseData {
   String? lastMonthActivation;
   String? samedayPreviousMonthActivation;
 
-  ConstomerListResponseData(
+  PensionerListResponseData(
       {this.id,
       this.parentId,
       this.accountId,
@@ -71,7 +73,7 @@ class ConstomerListResponseData {
       this.lastMonthActivation,
       this.samedayPreviousMonthActivation});
 
-  ConstomerListResponseData.fromJson(Map<String, dynamic> json) {
+  PensionerListResponseData.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     parentId = json["parent_id"];
     accountId = json["account_id"];

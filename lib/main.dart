@@ -1,7 +1,7 @@
 import 'package:bowl_app/global/blocs/cubit/internet_cubit.dart';
 import 'package:bowl_app/global/utils/routes_list.dart';
-import 'package:bowl_app/modules/dashboard/blocs/bloc/dashboard_bloc.dart';
-import 'package:bowl_app/modules/splash/screens/splash_screen.dart';
+import 'package:bowl_app/modules/pensioners/blocs/bloc/pensioner_bloc.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<InternetCubit>(
           create: (context) => InternetCubit(),
         ),
-        BlocProvider<DashboardBloc>(
-          create: (context) => DashboardBloc(),
+        BlocProvider<PensionerBloc>(
+          create: (context) => PensionerBloc(),
         ),
       ],
       child: const MaterialApp(

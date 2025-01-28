@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class FormWidgets {
   //Text
@@ -6,6 +7,9 @@ class FormWidgets {
     required TextEditingController controller,
     required bool? formEnabled,
     void Function(String)? onChanged,
+    List<TextInputFormatter>? inputFormatters,
+    TextCapitalization textCapitalization = TextCapitalization.none,
+    TextInputType? keyboardType,
     Widget? icon,
     Color? iconColor = Colors.black,
     Widget? prefix,
@@ -36,6 +40,9 @@ class FormWidgets {
         controller: controller,
         style: const TextStyle(color: Colors.black),
         onChanged: onChanged,
+        keyboardType: keyboardType,
+        inputFormatters: inputFormatters,
+        textCapitalization: textCapitalization,
         decoration: InputDecoration(
           icon: (icon != null) ? icon : null,
           iconColor: iconColor,

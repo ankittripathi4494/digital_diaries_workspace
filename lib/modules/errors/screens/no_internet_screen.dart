@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:bowl_app/global/blocs/cubit/internet_cubit.dart';
 import 'package:bowl_app/global/blocs/cubit/internet_state.dart';
 import 'package:bowl_app/global/utils/images_list.dart';
-import 'package:bowl_app/global/utils/utilities.dart';
-import 'package:bowl_app/global/widgets/appbars.dart';
+
 import 'package:bowl_app/global/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,4 +1,5 @@
-import 'package:bowl_app/modules/dashboard/screens/dashboard_screen.dart';
+import 'package:bowl_app/modules/auth/signup/screens/signup_screen.dart';
+import 'package:bowl_app/modules/pensioners/screens/pensioner_list_screen.dart';
 import 'package:bowl_app/modules/errors/screens/no_internet_screen.dart';
 import 'package:bowl_app/modules/errors/screens/page_not_found_screen.dart';
 import 'package:bowl_app/modules/splash/screens/splash_screen.dart';
@@ -24,21 +25,37 @@ class GenerateRoutePageSystem {
           type: PageTransitionType.fade,
           child: SplashScreen(arguments: const {}),
         );
-      case '/dashboard':
+      case '/pensioner-list':
         if (argus is Map<String, dynamic>) {
           return PageTransition(
               curve: Curves.bounceIn,
               duration: Durations.short4,
               type: PageTransitionType.fade,
-              child: DashboardScreen(arguments: argus),
+              child: PensionerListScreen(arguments: argus),
               isIos: false);
         }
         return PageTransition(
             curve: Curves.bounceIn,
             duration: Durations.short4,
             type: PageTransitionType.fade,
-            child: DashboardScreen(arguments: const {}),
+            child: PensionerListScreen(arguments: const {}),
             isIos: false);
+      case '/signup':
+        if (argus is Map<String, dynamic>) {
+          return PageTransition(
+              curve: Curves.bounceIn,
+              duration: Durations.short4,
+              type: PageTransitionType.fade,
+              child: SignupScreen(arguments: argus),
+              isIos: false);
+        }
+        return PageTransition(
+            curve: Curves.bounceIn,
+            duration: Durations.short4,
+            type: PageTransitionType.fade,
+            child: SignupScreen(arguments: const {}),
+            isIos: false);
+
       case '/no-internet':
         if (argus is Map<String, dynamic>) {
           return PageTransition(
