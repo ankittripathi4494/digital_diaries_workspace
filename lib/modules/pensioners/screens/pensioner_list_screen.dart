@@ -78,8 +78,9 @@ class _PensionerListScreenState extends State<PensionerListScreen> {
                       child: ListView.builder(
                         itemCount: state.customersData.length,
                         itemBuilder: (context, index) => ListTile(
-                          title: Text(state.customersData[index].fullname!),
-                          subtitle: Text(state.customersData[index].accountId!),
+                          title: Text(state.customersData[index].name!),
+                          subtitle:
+                              Text(state.customersData[index].aadhaarNumber!),
                         ),
                       ),
                     ),

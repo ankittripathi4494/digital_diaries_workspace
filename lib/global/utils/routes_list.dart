@@ -1,4 +1,5 @@
 import 'package:bowl_app/modules/auth/signup/screens/signup_screen.dart';
+import 'package:bowl_app/modules/dashboard/screens/dashboard_screen.dart';
 import 'package:bowl_app/modules/pensioners/screens/pensioner_list_screen.dart';
 import 'package:bowl_app/modules/errors/screens/no_internet_screen.dart';
 import 'package:bowl_app/modules/errors/screens/page_not_found_screen.dart';
@@ -25,6 +26,21 @@ class GenerateRoutePageSystem {
           type: PageTransitionType.fade,
           child: SplashScreen(arguments: const {}),
         );
+      case '/dashboard':
+        if (argus is Map<String, dynamic>) {
+          return PageTransition(
+              curve: Curves.bounceIn,
+              duration: Durations.short4,
+              type: PageTransitionType.fade,
+              child: DashboardScreen(arguments: argus),
+              isIos: false);
+        }
+        return PageTransition(
+            curve: Curves.bounceIn,
+            duration: Durations.short4,
+            type: PageTransitionType.fade,
+            child: DashboardScreen(arguments: const {}),
+            isIos: false);
       case '/pensioner-list':
         if (argus is Map<String, dynamic>) {
           return PageTransition(
@@ -40,6 +56,7 @@ class GenerateRoutePageSystem {
             type: PageTransitionType.fade,
             child: PensionerListScreen(arguments: const {}),
             isIos: false);
+
       case '/signup':
         if (argus is Map<String, dynamic>) {
           return PageTransition(

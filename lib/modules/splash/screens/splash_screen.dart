@@ -25,7 +25,8 @@ class _SplashScreenState extends State<SplashScreen> {
       listener: (context, state) {
         if (state == InternetState.connected) {
           Timer(Durations.long3, () {
-            Navigator.pushReplacementNamed(context, '/signup', arguments: {});
+            Navigator.pushReplacementNamed(context, '/dashboard',
+                arguments: {});
           });
         } else if (state == InternetState.disconnected) {
           Timer(Durations.medium4, () {
@@ -44,6 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ],
         ),
+        floatingActionButton: Container(),
       ),
     );
   }

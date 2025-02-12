@@ -16,22 +16,22 @@ class PensionerBloc extends Bloc<PensionerEvent, PensionerState> {
   _fetchFilterCustomerEvent(PensionerCustomerFilterFetchEvent event,
       Emitter<PensionerState> emit) async {
     var ob = jsonDecode(await rootBundle.loadString(
-        "asset/jsons/jsonData.json")); // String -> json // Data source
+        "asset/jsons/pensioner_database.json")); // String -> json // Data source
     PensionerListResponseModel cm =
         PensionerListResponseModel.fromJson(ob); // json -> Model Object
-    List<PensionerListResponseData> searchData = [];
+    List<Pensioners> searchData = [];
 
     if (kDebugMode) {
       print(event.searchText);
     }
     try {
       if (event.searchText != null) {
-        for (PensionerListResponseData cmd in cm.data!) {
-          if ((cmd.accountId!
+        for (Pensioners cmd in cm.pensioners!) {
+          if ((cmd.aadhaarNumber!
                   .trim()
                   .toLowerCase()
                   .contains(event.searchText!)) ||
-              (cmd.fullname!
+              (cmd.panNumber!
                   .trim()
                   .toLowerCase()
                   .contains(event.searchText!))) {
@@ -47,8 +47,8 @@ class PensionerBloc extends Bloc<PensionerEvent, PensionerState> {
         }
       } else {
         // Search Text null
-        emit(
-            PensionerCustomerLoadedState(customersData: cm.data!)); //! all data
+        emit(PensionerCustomerLoadedState(
+            customersData: cm.pensioners!)); //! all data
       }
     } catch (e) {
       emit(PensionerCustomerLoadedFailedState(errorMessage: e.toString()));

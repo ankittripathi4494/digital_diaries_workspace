@@ -7,7 +7,7 @@ final class PensionerInitial extends PensionerState {}
 class PensionerCustomerLoadingState extends PensionerState {}
 
 class PensionerCustomerLoadedState extends PensionerState {
-  late List<PensionerListResponseData> customersData;
+  late List<Pensioners> customersData;
   PensionerCustomerLoadedState({
     required this.customersData,
   });

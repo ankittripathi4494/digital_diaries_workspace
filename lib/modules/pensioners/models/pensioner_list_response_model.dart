@@ -1,105 +1,196 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 class PensionerListResponseModel {
-  String? status;
-  String? response;
-  String? message;
-  int? totalCount;
-  String? itemCount;
-  int? pageNo;
-  List<PensionerListResponseData>? data;
+  List<Pensioners>? pensioners;
 
-  PensionerListResponseModel(
-      {this.status,
-      this.response,
-      this.message,
-      this.totalCount,
-      this.itemCount,
-      this.pageNo,
-      this.data});
+  PensionerListResponseModel({this.pensioners});
 
   PensionerListResponseModel.fromJson(Map<String, dynamic> json) {
-    status = json["status"];
-    response = json["response"];
-    message = json["message"];
-    totalCount = json["totalCount"];
-    itemCount = json["item_count"];
-    pageNo = json["page_no"];
-    data = json["data"] == null
+    pensioners = json["pensioners"] == null
         ? null
-        : (json["data"] as List)
-            .map((e) => PensionerListResponseData.fromJson(e))
+        : (json["pensioners"] as List)
+            .map((e) => Pensioners.fromJson(e))
             .toList();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["status"] = status;
-    _data["response"] = response;
-    _data["message"] = message;
-    _data["totalCount"] = totalCount;
-    _data["item_count"] = itemCount;
-    _data["page_no"] = pageNo;
-    if (data != null) {
-      _data["data"] = data?.map((e) => e.toJson()).toList();
+    if (pensioners != null) {
+      _data["pensioners"] = pensioners?.map((e) => e.toJson()).toList();
     }
     return _data;
   }
 }
 
-class PensionerListResponseData {
+class Pensioners {
   String? id;
-  String? parentId;
-  String? accountId;
-  String? fullname;
-  String? companyName;
-  String? parentCompany;
-  String? parentName;
-  String? todayActivation;
-  String? currentMonthActivation;
-  String? lastMonthActivation;
-  String? samedayPreviousMonthActivation;
+  String? registrationNo;
+  String? name;
+  String? gender;
+  String? dateOfBirth;
+  String? pensionType;
+  String? retirementDate;
+  String? aadhaarNumber;
+  String? panNumber;
+  Contact? contact;
+  Address? address;
+  BankDetails? bankDetails;
+  int? pensionAmount;
+  Nominee? nominee;
 
-  PensionerListResponseData(
+  Pensioners(
       {this.id,
-      this.parentId,
-      this.accountId,
-      this.fullname,
-      this.companyName,
-      this.parentCompany,
-      this.parentName,
-      this.todayActivation,
-      this.currentMonthActivation,
-      this.lastMonthActivation,
-      this.samedayPreviousMonthActivation});
+      this.registrationNo,
+      this.name,
+      this.gender,
+      this.dateOfBirth,
+      this.pensionType,
+      this.retirementDate,
+      this.aadhaarNumber,
+      this.panNumber,
+      this.contact,
+      this.address,
+      this.bankDetails,
+      this.pensionAmount,
+      this.nominee});
 
-  PensionerListResponseData.fromJson(Map<String, dynamic> json) {
+  Pensioners.fromJson(Map<String, dynamic> json) {
     id = json["id"];
-    parentId = json["parent_id"];
-    accountId = json["account_id"];
-    fullname = json["fullname"];
-    companyName = json["company_name"];
-    parentCompany = json["parent_company"];
-    parentName = json["parent_name"];
-    todayActivation = json["todayActivation"];
-    currentMonthActivation = json["currentMonthActivation"];
-    lastMonthActivation = json["lastMonthActivation"];
-    samedayPreviousMonthActivation = json["samedayPreviousMonthActivation"];
+    registrationNo = json["registration_no"];
+    name = json["name"];
+    gender = json["gender"];
+    dateOfBirth = json["date_of_birth"];
+    pensionType = json["pension_type"];
+    retirementDate = json["retirement_date"];
+    aadhaarNumber = json["aadhaar_number"];
+    panNumber = json["pan_number"];
+    contact =
+        json["contact"] == null ? null : Contact.fromJson(json["contact"]);
+    address =
+        json["address"] == null ? null : Address.fromJson(json["address"]);
+    bankDetails = json["bank_details"] == null
+        ? null
+        : BankDetails.fromJson(json["bank_details"]);
+    pensionAmount = json["pension_amount"];
+    nominee =
+        json["nominee"] == null ? null : Nominee.fromJson(json["nominee"]);
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
     _data["id"] = id;
-    _data["parent_id"] = parentId;
-    _data["account_id"] = accountId;
-    _data["fullname"] = fullname;
-    _data["company_name"] = companyName;
-    _data["parent_company"] = parentCompany;
-    _data["parent_name"] = parentName;
-    _data["todayActivation"] = todayActivation;
-    _data["currentMonthActivation"] = currentMonthActivation;
-    _data["lastMonthActivation"] = lastMonthActivation;
-    _data["samedayPreviousMonthActivation"] = samedayPreviousMonthActivation;
+    _data["registration_no"] = registrationNo;
+    _data["name"] = name;
+    _data["gender"] = gender;
+    _data["date_of_birth"] = dateOfBirth;
+    _data["pension_type"] = pensionType;
+    _data["retirement_date"] = retirementDate;
+    _data["aadhaar_number"] = aadhaarNumber;
+    _data["pan_number"] = panNumber;
+    if (contact != null) {
+      _data["contact"] = contact?.toJson();
+    }
+    if (address != null) {
+      _data["address"] = address?.toJson();
+    }
+    if (bankDetails != null) {
+      _data["bank_details"] = bankDetails?.toJson();
+    }
+    _data["pension_amount"] = pensionAmount;
+    if (nominee != null) {
+      _data["nominee"] = nominee?.toJson();
+    }
+    return _data;
+  }
+}
+
+class Nominee {
+  String? name;
+  String? relationship;
+  String? aadhaarNumber;
+  String? contact;
+
+  Nominee({this.name, this.relationship, this.aadhaarNumber, this.contact});
+
+  Nominee.fromJson(Map<String, dynamic> json) {
+    name = json["name"];
+    relationship = json["relationship"];
+    aadhaarNumber = json["aadhaar_number"];
+    contact = json["contact"];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["name"] = name;
+    _data["relationship"] = relationship;
+    _data["aadhaar_number"] = aadhaarNumber;
+    _data["contact"] = contact;
+    return _data;
+  }
+}
+
+class BankDetails {
+  String? bankName;
+  String? accountNumber;
+  String? ifscCode;
+
+  BankDetails({this.bankName, this.accountNumber, this.ifscCode});
+
+  BankDetails.fromJson(Map<String, dynamic> json) {
+    bankName = json["bank_name"];
+    accountNumber = json["account_number"];
+    ifscCode = json["ifsc_code"];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["bank_name"] = bankName;
+    _data["account_number"] = accountNumber;
+    _data["ifsc_code"] = ifscCode;
+    return _data;
+  }
+}
+
+class Address {
+  String? street;
+  String? city;
+  String? state;
+  String? pincode;
+
+  Address({this.street, this.city, this.state, this.pincode});
+
+  Address.fromJson(Map<String, dynamic> json) {
+    street = json["street"];
+    city = json["city"];
+    state = json["state"];
+    pincode = json["pincode"];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["street"] = street;
+    _data["city"] = city;
+    _data["state"] = state;
+    _data["pincode"] = pincode;
+    return _data;
+  }
+}
+
+class Contact {
+  String? phone;
+  String? email;
+
+  Contact({this.phone, this.email});
+
+  Contact.fromJson(Map<String, dynamic> json) {
+    phone = json["phone"];
+    email = json["email"];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["phone"] = phone;
+    _data["email"] = email;
     return _data;
   }
 }
